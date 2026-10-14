@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+
+function copyEmail() {
+
+    // Address assembled at runtime so it never appears whole in the source
+    var email = ["info", "workingfrequency.co.uk"].join("@");
+    var message = document.getElementById("copyMessage");
+
+    function copied() {
+        message.textContent = "Cyfeiriad wedi ei gopïo / Email copied to clipboard";
+    }
+
+    function fallback() {
+        var temp = document.createElement("textarea");
+        temp.value = email;
+        document.body.appendChild(temp);
+        temp.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(temp);
+        if (ok) {
+            copied();
+        } else {
+            message.textContent = email;
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(copied, fallback);
+    } else {
+        fallback();
+    }
+
+    // Open the visitor's mail app; link is only built on click, so bots never see it
+    window.location.href = "mailto:" + email;
+
+}
+
+</script>
+
+    <!-- TITLE -->
+    <title>Working Frequency | Professional Broadcast Audio Services</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Working Frequency provides professional outside broadcast audio services across Wales and the UK. Sound assisting, mixing, supervising and guaranteeing.">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- CUSTOM CSS -->
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================== */
+
+        body {
+            background: #070D13;
+            color: #D1D5DB;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #F5C400;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #FFD84D;
+        }
+
+        h1, h2, h3, h4 {
+            color: #FFFFFF;
+	    font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            max-width: 440px;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+	    font-family: 'Sora', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .text-lead {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+	    text-align: justify;
+        }
+
+        .text-sub {
+            font-size: 0.9rem;
+            color: #9CA3AF;
+            margin-bottom: 30px;
+	    text-align: justify;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            font-size: 1rem;
+            color: #C5CBD3;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .btn-wf {
+            background: #F5C400;
+            color: #0B0F15;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: 0.2s ease;
+        }
+
+        .btn-wf:hover {
+            background: #FFD84D;
+            color: #0B0F15;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        /* Matches Bootstrap's lg breakpoint, where the columns stack */
+        @media (max-width: 991.98px) {
+
+            .hero {
+                text-align: center;
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .logo-image {
+                max-width: 330px;
+                margin-bottom: 0px;
+            }
+
+            .hero .text-lead,
+            .hero .text-sub {
+                text-align: center;
+            }
+
+            #copyMessage {
+                display: block;
+                margin-top: 12px;
+            }
+
+            /* Long credit lists read better left-aligned on narrow screens */
+            .hero .credits p {
+                text-align: left;
+            }
+
+        }
+
+        @media (max-width: 400px) {
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero-title {
+                font-size: 2.1rem;
+            }
+
+            .logo-image {
+                max-width: 260px;
+            }
+
+            .btn-wf {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <!-- LOGO -->
+                <div class="col-lg-5 text-center mb-5 mb-lg-0">
+
+                    <img src="logo.png"
+                         alt="Working Frequency Logo"
+                         class="logo-image img-fluid">
+
+                </div>
+
+                <!-- TEXT -->
+                <div class="col-lg-7">
+
+                    <div class="hero-title">
+                        <span style="color: #ffffff;">Iawn?</span> <span style="color: #F5C400;" lang="en">Sound.</span>
+                    </div>
+
+                        <p class="text-lead">
+                            Gwasanaeth sain proffesiynol ar gyfer cynyrchiadau byw, digwyddiadau a darlledu allanol.
+                        </p>
+
+                        <p class="text-sub" lang="en">
+                            Professional outside broadcast audio engineer for live production, events and broadcast.
+                        </p>
+
+			<button class="btn btn-wf" onclick="copyEmail()">
+    			Cysylltu / Contact
+			</button>
+			<span id="copyMessage" class="text-sub"></span>
+                    </div>
+
+                </div>
+		<div class="credits mt-5" lang="en">
+		<p class="text-lead">
+			Sound Supervisor, Guarantee or Assistant across sport, entertainment and live events — with experience spanning everything from major sporting coverage to music and arts productions.
+		</p>
+		<p class="text-sub"><u>Sound Supervisor/Mixer:</u> Sgorio, DCDC, Royal Welsh Show, Eisteddfod yr Urdd, Snooker: Welsh Open, Snooker: World Championship, NBC at Royal Ascot...</p>
+		<p class="text-sub"><u>Sound Guarantee:</u> Sgorio, DCDC, Royal Welsh Show, Question Time, Eisteddfod yr Urdd, Eisteddfod Genedlaethol, BBC Young Chorister of the Year, Cardiff Singer of the World, Llangollen International Eisteddfod, Cheltenham Jazz Festival, Tafwyl, Paralympics 2024, Qatar World Cup Downlink, Snooker: Welsh Open, BBC Wales Election Coverage 2024 & 2026, UEFA International Matches, International Rugby, Cardiff Speedway...</p>
+		<p class="text-sub"><u>Sound Assistant:</u> Sgorio, Rygbi Pawb, DCDC, Songs of Praise, Royal Welsh Show, Eisteddfod yr Urdd, Eisteddfod Genedlaethol, Pawb a'i Farn, Cardiff Singer of the World, Llangollen International Eisteddfod, Cheltenham Jazz Festival, Snooker: Welsh Open, ITV Racing, UEFA International Matches...</p>
+		</div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
